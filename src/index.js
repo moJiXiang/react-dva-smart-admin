@@ -1,11 +1,16 @@
 import dva from 'dva';
-import './index.scss';
+import createLoading from 'dva-loading';
+
+import router from './router';
 import registerServiceWorker from './registerServiceWorker';
+import './index.scss';
 
-const app = dva()
+const app = dva();
 
-app.router(require('./router').default)
+app.use(createLoading());
 
-app.start('#root')
+app.router(router);
+
+app.start('#root');
 
 registerServiceWorker();

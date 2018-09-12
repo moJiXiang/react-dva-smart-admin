@@ -6,6 +6,9 @@ import { Route, routerRedux, Switch } from 'dva/router';
 // models
 import Count from './models/count';
 
+// layouts
+import BasicLayout from './layouts/BasicLayout';
+
 // components
 import AppComponent from './router/App/App';
 
@@ -21,7 +24,8 @@ function router({ history, app }) {
     return (
         <ConnectedRouter history={history}>
             <Switch>
-                <Route exact path="/" component={App} />
+                <Route exact path="/" component={BasicLayout} />
+                <Route path="/app" component={App} />
             </Switch>
         </ConnectedRouter>
     );

@@ -1,11 +1,23 @@
 {
-    "extends": ["airbnb", "plugin:flowtype/recommended"],
+    "extends": [
+        "airbnb", 
+        "plugin:flowtype/recommended"
+    ],
+    "env": {
+        "browser": true
+    },
     "plugins": [
         "flowtype"
     ],
     "rules": {
         "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
         "react/jsx-filename-extension": [1, {"extensions": [".js"]}],
+        "jsx-a11y/label-has-associated-control": false,
+        "jsx-a11y/click-events-have-key-events": false,
+        "jsx-a11y/no-static-element-interactions": false,
+        "jsx-a11y/label-has-for": false,
+        "jsx-a11y/anchor-is-valid": false,
         "indent": ["error", 4]
     }
 }

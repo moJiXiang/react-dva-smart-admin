@@ -3,6 +3,9 @@ import createLoading from 'dva-loading';
 
 import router from './router';
 import registerServiceWorker from './registerServiceWorker';
+
+import './assets/scss/smartadmin-production.scss';
+import './assets/scss/smartadmin-react.scss';
 import './index.scss';
 
 const app = dva();

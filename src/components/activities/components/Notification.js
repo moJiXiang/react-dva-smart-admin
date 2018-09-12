@@ -1,0 +1,21 @@
+// @flow
+import React from 'react';
+import classnames from 'classnames';
+
+export default class Notification extends React.PureComponent<Object, empty> {
+    render() {
+        const { item } = this.props;
+        return (
+            <span className="padding-10">
+                <em className="badge padding-5 no-border-radius bg-color-blueLight pull-left margin-right-5">
+                    <i className={classnames(['fa fa-fw fa-2x', item.icon])} />
+                </em>
+                <span>
+                    {item.message}
+                    <br />
+                    <span className="pull-right font-xs text-muted"><i>{item.time}</i></span>
+                </span>
+            </span>
+        );
+    }
+}

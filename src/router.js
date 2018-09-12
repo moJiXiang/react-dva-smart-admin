@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'dva/dynamic';
 import propTypes from 'prop-types';
-import { Route, routerRedux, Switch } from 'dva/router';
+import { routerRedux, Switch } from 'dva/router';
 
 // models
 import Count from './models/count';
@@ -24,8 +24,7 @@ function router({ history, app }) {
     return (
         <ConnectedRouter history={history}>
             <Switch>
-                <Route exact path="/" component={BasicLayout} />
-                <Route path="/app" component={App} />
+                <BasicLayout path="/app" component={App} />
             </Switch>
         </ConnectedRouter>
     );

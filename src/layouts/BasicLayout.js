@@ -1,29 +1,27 @@
 // @flow
 import React from 'react';
+import { Route } from 'dva/router';
 
 import Header from '../components/common/Header';
 import Navigation from '../components/navigation/Navigation';
 import Footer from '../components/common/Footer';
 
-type Props = {
-    children: Object
-};
+export default function BasicLayout({ component: Component, ...rest }: Object) {
+    return (
+        <Route
+            {...rest}
+            render={matchProps => (
+                <div id="wrapper">
+                    <Header />
+                    <Navigation />
 
-export default class Layout extends React.PureComponent<Props, any> {
-    render() {
-        const { children } = this.props;
-        return (
-            <div id="wrapper">
-                <Header />
-                <Navigation />
+                    <div id="main" role="main">
+                        <Component {...matchProps} />
+                    </div>
 
-                <div id="main" role="main">
-                    {/* <Ribbon /> */}
-                    {children}
+                    <Footer />
                 </div>
-
-                <Footer />
-            </div>
-        );
-    }
+            )}
+        />
+    );
 }

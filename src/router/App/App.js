@@ -3,17 +3,48 @@ import React from 'react';
 import { connect } from 'dva';
 
 import type { AppProps, AppState } from './App.flow';
+import Test from './Test';
 import Style from './App.scss';
 
 export class App extends React.Component<AppProps, AppState> {
+    constructor(props) {
+        super(props);
+        this.state = {
+            aa: 0,
+            nn: {
+                newNodes: [],
+            },
+        };
+    }
+
     handleButtonClick = () => {
-        const { dispatch } = this.props;
-        dispatch({
-            type: 'count/addWithDelay',
+        // const { dispatch } = this.props;
+        // this.setState(prevState => ({
+        //     nn: prevState.nn + 1,
+        // }));
+        this.setState((prevState) => {
+            const newAddNodes = {
+                newNodes: [
+                    { n: 1, edge: 1 },
+                    { n: 2, edge: 2 },
+                ],
+            };
+            // const newVal = prevState.nn + 1;
+            return {
+                nn: Object.assign(prevState.nn, newAddNodes),
+            };
+            // return {
+            //     nn: { ...prevState.nn, ...newAddNodes },
+            // };
         });
+        // dispatch({
+        //     type: 'count/addWithDelay',
+        // });
     }
 
     render() {
+        console.log('render');
+        const { aa, nn } = this.state;
         const { count, submitting } = this.props;
         return (
             <div className={Style.App}>
@@ -24,7 +55,11 @@ export class App extends React.Component<AppProps, AppState> {
                     {submitting ? 'loading...' : ''}
                     Count:
                     {count}
+                    {aa}
                     <button type="button" onClick={this.handleButtonClick}>+</button>
+                    <Test
+                        nn={nn}
+                    />
                 </div>
             </div>
         );

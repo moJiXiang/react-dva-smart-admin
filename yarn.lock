@@ -3312,7 +3312,7 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
-gojs@^1.8.26:
+gojs@^1.8.26, gojs@^1.8.29:
   version "1.8.29"
   resolved "https://registry.yarnpkg.com/gojs/-/gojs-1.8.29.tgz#960e629bf67ce2be0334b4e19580d33377a45467"
 

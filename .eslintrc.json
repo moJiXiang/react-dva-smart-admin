@@ -4,7 +4,8 @@
         "plugin:flowtype/recommended"
     ],
     "env": {
-        "browser": true
+        "browser": true,
+        "es6": true
     },
     "plugins": [
         "flowtype"
@@ -18,6 +19,10 @@
         "jsx-a11y/no-static-element-interactions": false,
         "jsx-a11y/label-has-for": false,
         "jsx-a11y/anchor-is-valid": false,
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "no-console": 0,
+        "import/no-unresolved": false,
+        "react/no-access-state-in-setstate": false,
+        "consistent-return": 0
     }
 }

@@ -11,6 +11,7 @@ import BasicLayout from './layouts/BasicLayout';
 
 // components
 import AppComponent from './router/App/App';
+import WorkflowComponent from './router/Workflow/Workflow';
 
 const { ConnectedRouter } = routerRedux;
 
@@ -21,10 +22,17 @@ function router({ history, app }) {
         component: () => AppComponent,
     });
 
+    const Workflow = dynamic({
+        app,
+        models: () => [Count],
+        component: () => WorkflowComponent,
+    });
+
     return (
         <ConnectedRouter history={history}>
             <Switch>
                 <BasicLayout path="/app" component={App} />
+                <BasicLayout path="/workflow" component={Workflow} />
             </Switch>
         </ConnectedRouter>
     );

@@ -7,5 +7,7 @@ export type AppProps = {
 }
 
 export type AppState = {
-    count: number
+    count: number,
+    aa: number,
+    nn: Object
 }

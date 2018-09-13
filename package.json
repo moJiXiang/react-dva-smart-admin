@@ -6,6 +6,7 @@
     "classnames": "^2.2.6",
     "dva": "^2.4.0",
     "dva-loading": "^2.0.5",
+    "gojs": "^1.8.29",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.0",

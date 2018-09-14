@@ -157,7 +157,7 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.s?css$/,
-            include: paths.smartAdminScss,
+            include: [/node_modules/, paths.smartAdminScss],
             use: [
               require.resolve('style-loader'),
               {

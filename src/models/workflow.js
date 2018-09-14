@@ -1,13 +1,8 @@
-import utils from '../utils/helpers';
-
-const { delay } = utils;
-
 export default {
-    namespace: 'count',
-    state: 0,
+    namespace: 'workflow',
+    workflows: [],
     effects: {
-        * addWithDelay(action, { call, put }) {
-            yield call(delay, 500);
+        * listWorkflows(action, { call, put }) {
             yield put({ type: 'add' });
         },
     },

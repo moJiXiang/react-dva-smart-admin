@@ -1,6 +1,33 @@
+.workflow-body {
+    min-height: calc( 100vh - (49px + 52px));
+}
+.workflow-body.no-content-padding {
+    overflow: hidden;
+}
+
+.workflow-editor {
+    background: #fff;
+    height: 100%;
+    padding: 10px 14px 10px 14px;
+    position: relative;
+    margin-left: 200px;
+    margin-right: 200px;
+    overflow-x: hidden;   
+}
+
+.workflow-components-list {
+    position: absolute;
+    padding: 10px 14px 10px 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: #ffffff;
+    width: 200px;
+}
+
 .myDiagram {
     width: 70%;
-    height: 500px;
+    min-height: calc( 100vh - (49px + 52px));
     flex: 1 1 auto;
     margin: auto;
 }

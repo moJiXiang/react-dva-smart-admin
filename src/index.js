@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import './assets/scss/smartadmin-production.scss';
 import './assets/scss/smartadmin-react.scss';
+import 'react-notifications/lib/notifications.css';
 import './index.scss';
 
 const app = dva();

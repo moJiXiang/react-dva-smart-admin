@@ -1,8 +1,8 @@
 import React from 'react';
 
 import ToggleMenu from './ToggleMenu';
-
 import Activities from '../activities/components/Activities';
+import logo from '../../assets/img/logo.png';
 
 export default function Header() {
     return (
@@ -10,7 +10,7 @@ export default function Header() {
             <div id="logo-group">
                 <span id="logo">
                     <img
-                        src="assets/img/logo.png" // place your logo here
+                        src={logo}
                         alt="SmartAdmin"
                     />
                 </span>
@@ -21,7 +21,7 @@ export default function Header() {
             <div className="pull-right">
 
 
-                <ToggleMenu className="btn-header pull-right" /* collapse menu button */ />
+                <ToggleMenu className="btn-header pull-right" />
 
 
                 {/* #MOBILE */}
@@ -50,7 +50,7 @@ export default function Header() {
                                     {' '}
                                     <i className="fa fa-user" />
                                     <u>P</u>
-rofile
+                                    rofile
                                 </a>
                             </li>
                             <li className="divider" />
@@ -62,7 +62,7 @@ rofile
                                     <i className="fa fa-arrow-down" />
                                     {' '}
                                     <u>S</u>
-                                        hortcut
+                                    hortcut
                                 </a>
                             </li>
                             <li className="divider" />
@@ -73,9 +73,9 @@ rofile
                                 >
                                     <i className="fa fa-arrows-alt" />
                                     {' '}
-                                        Full
+                                    Full
                                     <u>S</u>
-                                        creen
+                                    creen
                                 </a>
                             </li>
                             <li className="divider" />
@@ -91,7 +91,7 @@ rofile
                                     {' '}
                                     <strong>
                                         <u>L</u>
-ogout
+                                        ogout
                                     </strong>
                                 </a>
                             </li>
@@ -159,8 +159,6 @@ ogout
                 </form>
             </div>
             {/* end pulled right: nav area */}
-
-
         </header>
     );
 }

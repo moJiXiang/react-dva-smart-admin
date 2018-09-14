@@ -167,7 +167,7 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.s?css$/,
-            include: paths.smartAdminScss,
+            include: [/node_modules/, paths.smartAdminScss],
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {

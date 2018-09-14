@@ -20,9 +20,15 @@
         "jsx-a11y/label-has-for": false,
         "jsx-a11y/anchor-is-valid": false,
         "indent": ["error", 4],
-        "no-console": 0,
+        "no-console": 1,
         "import/no-unresolved": false,
         "react/no-access-state-in-setstate": false,
-        "consistent-return": 0
+        "function-paren-newline": "off",
+        "consistent-return": 0,
+        "no-param-reassign": "off",
+        "no-constant-condition": ["error", { "checkLoops": false }],
+        "max-len": ["error", {"code": 150}],
+        "no-plusplus": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }

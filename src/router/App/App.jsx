@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
 import { connect } from 'dva';
-
 import type { AppProps, AppState } from './App.flow';
 import Test from './Test';
+import Notification from '../../components/common/Notification';
 import Style from './App.scss';
 
 export class App extends React.Component<AppProps, AppState> {
@@ -42,8 +42,14 @@ export class App extends React.Component<AppProps, AppState> {
         // });
     }
 
+    showNotification = () => {
+        Notification.info({
+            message: 'test',
+            title: 'test',
+        });
+    }
+
     render() {
-        console.log('render');
         const { aa, nn } = this.state;
         const { count, submitting } = this.props;
         return (
@@ -60,6 +66,7 @@ export class App extends React.Component<AppProps, AppState> {
                     <Test
                         nn={nn}
                     />
+                    <button type="button" onClick={this.showNotification}>显示</button>
                 </div>
             </div>
         );

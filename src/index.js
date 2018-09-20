@@ -7,6 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import './assets/scss/smartadmin-production.scss';
 import './assets/scss/smartadmin-react.scss';
 import 'react-notifications/lib/notifications.css';
+import 'handsontable-pro/dist/handsontable.full.css';
 import './index.scss';
 
 const app = dva();
@@ -18,3 +19,5 @@ app.router(router);
 app.start('#root');
 
 registerServiceWorker();
+
+export default app._store;

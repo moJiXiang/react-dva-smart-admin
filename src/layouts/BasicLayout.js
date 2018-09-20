@@ -8,23 +8,32 @@ import Navigation from '../components/navigation/Navigation';
 import Ribbon from '../components/ribbon/Ribbon';
 import Footer from '../components/common/Footer';
 
-export default function BasicLayout({ component: Component, ...rest }: Object) {
-    return (
-        <Route
-            {...rest}
-            render={matchProps => (
-                <div id="wrapper">
-                    <Header />
-                    <Navigation />
-                    <Ribbon />
-                    <div id="main" role="main">
-                        <Component {...matchProps} />
-                    </div>
+export default class BasicLayout extends React.PureComponent<any, any> {
+    logOut = () => {
 
-                    <NotificationContainer />
-                    <Footer />
-                </div>
-            )}
-        />
-    );
+    }
+
+    render() {
+        const { component: Component, ...rest } = this.props;
+        return (
+            <Route
+                {...rest}
+                render={matchProps => (
+                    <div id="wrapper">
+                        <Header
+                            logOut={this.logOut}
+                        />
+                        <Navigation />
+                        <Ribbon />
+                        <div id="main" role="main">
+                            <Component {...matchProps} />
+                        </div>
+
+                        <NotificationContainer />
+                        <Footer />
+                    </div>
+                )}
+            />
+        );
+    }
 }

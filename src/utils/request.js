@@ -1,6 +1,6 @@
 import fetch from 'dva/fetch';
-import { notification } from 'antd';
-import { routerRedux } from 'dva/router';
+// import { routerRedux } from 'dva/router';
+import Notification from '../components/common/Notification';
 import store from '../index';
 
 const codeMessage = {
@@ -25,9 +25,9 @@ function checkStatus(response) {
         return response;
     }
     const errortext = codeMessage[response.status] || response.statusText;
-    notification.error({
-        message: `请求错误 ${response.status}: ${response.url}`,
-        description: errortext,
+    Notification.error({
+        title: `请求错误 ${response.status}: ${response.url}`,
+        message: errortext,
     });
     const error = new Error(errortext);
     error.name = response.status;
@@ -79,18 +79,17 @@ export default function request(url, options) {
                 dispatch({
                     type: 'login/logout',
                 });
-                return;
             }
-            if (status === 403) {
-                dispatch(routerRedux.push('/exception/403'));
-                return;
-            }
-            if (status <= 504 && status >= 500) {
-                dispatch(routerRedux.push('/exception/500'));
-                return;
-            }
-            if (status >= 404 && status < 422) {
-                dispatch(routerRedux.push('/exception/404'));
-            }
+            // if (status === 403) {
+            //     dispatch(routerRedux.push('/exception/403'));
+            //     return;
+            // }
+            // if (status <= 504 && status >= 500) {
+            //     dispatch(routerRedux.push('/exception/500'));
+            //     return;
+            // }
+            // if (status >= 404 && status < 422) {
+            //     dispatch(routerRedux.push('/exception/404'));
+            // }
         });
 }

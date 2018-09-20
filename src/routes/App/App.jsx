@@ -1,18 +1,20 @@
 // @flow
 import React from 'react';
 import { connect } from 'dva';
-import type { AppProps, AppState } from './App.flow';
-import Test from './Test';
 import Notification from '../../components/common/Notification';
 import Style from './App.scss';
+import AppChild from './AppChild';
+import NodesChild from './NodesChild';
+import { genNanoid } from '../../utils/helpers';
 
-export class App extends React.Component<AppProps, AppState> {
+export class App extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.state = {
             aa: 0,
-            nn: {
-                newNodes: [],
+            nodes: [],
+            workflow: {
+                nodeArray: [],
             },
         };
     }
@@ -22,24 +24,22 @@ export class App extends React.Component<AppProps, AppState> {
         // this.setState(prevState => ({
         //     nn: prevState.nn + 1,
         // }));
-        this.setState((prevState) => {
-            const newAddNodes = {
-                newNodes: [
-                    { n: 1, edge: 1 },
-                    { n: 2, edge: 2 },
-                ],
-            };
-            // const newVal = prevState.nn + 1;
-            return {
-                nn: Object.assign(prevState.nn, newAddNodes),
-            };
-            // return {
-            //     nn: { ...prevState.nn, ...newAddNodes },
-            // };
-        });
+        this.setState(prevState => ({
+            aa: prevState.aa + 1,
+            nodes: [...prevState.nodes, { id: genNanoid() }],
+        }));
         // dispatch({
         //     type: 'count/addWithDelay',
         // });
+    }
+
+    handleWfBtnClick = () => {
+        this.setState(prevState => ({
+            workflow: {
+                ...prevState.workflow,
+                nodeArray: [...prevState.workflow.nodeArray, { key: genNanoid() }],
+            },
+        }));
     }
 
     showNotification = () => {
@@ -50,7 +50,8 @@ export class App extends React.Component<AppProps, AppState> {
     }
 
     render() {
-        const { aa, nn } = this.state;
+        const { aa, nodes, workflow } = this.state;
+        console.log('aa', aa);
         const { count, submitting } = this.props;
         return (
             <div className={Style.App}>
@@ -63,10 +64,25 @@ export class App extends React.Component<AppProps, AppState> {
                     {count}
                     {aa}
                     <button type="button" onClick={this.handleButtonClick}>+</button>
-                    <Test
-                        nn={nn}
-                    />
+
                     <button type="button" onClick={this.showNotification}>显示</button>
+                    <i>App child</i>
+                    <AppChild
+                        count={aa}
+                        nodes={nodes}
+                    />
+                </div>
+
+                <div id="content">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <h3>测试props传值</h3>
+                            <button type="button" onClick={this.handleWfBtnClick}>add node</button>
+                            <NodesChild
+                                workflow={workflow}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         );

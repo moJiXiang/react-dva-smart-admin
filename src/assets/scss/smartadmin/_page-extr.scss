@@ -23,6 +23,7 @@
   #header {
 	  margin: 0;
 	  height: 71px;
+	  line-height: 71px;
 	  border-bottom: 1px solid $gray-lighter !important;
 	  overflow: hidden;
 	  padding: 0 30px;
@@ -33,10 +34,9 @@
   	background: $white;
 	  
 	  #logo {
-	    margin-top: 22px;
 	    margin-left: 0px;
 	
-      img { width: 137px; }
+      img { width: 40px; }
     }	
   }
 
@@ -115,7 +115,6 @@
 @media only screen and (min-width: 0px) and (max-width: 679px) {
 	#extr-page #header {
 		padding: 0 5px !important;
-		#logo { margin-top: 22px; }
-		#logo img { width: 135px; }
+		#logo img { width: 40px; }
 	}	
 }

@@ -6,27 +6,8 @@ type Config = {
     message: string,
 }
 
-// export default function Notification(props: Props) {
-//     const { config: { type, title, message } } = props;
-//     return (
-//         switch (type) {
-//             case 'info':
-//                 NotificationManager.info(message)
-//                 break;
-//             case 'success':
-//                 NotificationManager.success(message, title)
-//             case 'warning':
-//                 NotificationManager.warning(message, title)
-//             case 'error':
-//                 NotificationManager.error(message, title)
-//                 break;
-//         }
-//     )
-// }
-
 export default class Notification {
     static info({ message, title }: Config) {
-        console.log('show info');
         NotificationManager.info(message, title);
     }
 

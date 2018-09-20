@@ -1,0 +1,25 @@
+.smart-form .note.note-error {
+    color: #A90329;
+}
+
+.smart-form form.rjsf {
+    margin-bottom: -15px;
+}
+
+.smart-form  {
+    .om-label {
+        display: block;
+        line-height: 19px;
+        font-weight: 400;
+        font-size: 13px;
+        color: #333;
+        text-align: left;
+        white-space: normal;
+    }
+    
+    fieldset > section {
+        .om-label {
+            margin-bottom: 6px;
+        }
+    }
+}

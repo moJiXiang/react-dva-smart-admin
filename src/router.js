@@ -1,38 +1,57 @@
 import React from 'react';
 import dynamic from 'dva/dynamic';
 import propTypes from 'prop-types';
-import { routerRedux, Switch } from 'dva/router';
+import { Route, routerRedux, Switch } from 'dva/router';
 
 // models
-import Count from './models/count';
+import auth from './models/auth';
+import count from './models/count';
+import workflow from './models/workflow';
+import cmdb from './models/cmdb';
 
 // layouts
 import BasicLayout from './layouts/BasicLayout';
 
 // components
-import AppComponent from './router/App/App';
-import WorkflowComponent from './router/Workflow/Workflow';
+import RouterLogin from './routes/Auth/Login';
+import RouterApp from './routes/App/App';
+import RouterWorkflow from './routes/Workflow/Workflow';
+import RouterWorkflowJobs from './routes/Workflow/WorkflowJobs';
 
 const { ConnectedRouter } = routerRedux;
 
 function router({ history, app }) {
+    const Login = dynamic({
+        app,
+        models: () => [auth],
+        component: () => RouterLogin,
+    });
+
     const App = dynamic({
         app,
-        models: () => [Count],
-        component: () => AppComponent,
+        models: () => [count],
+        component: () => RouterApp,
     });
 
     const Workflow = dynamic({
         app,
-        models: () => [Count],
-        component: () => WorkflowComponent,
+        models: () => [workflow, cmdb],
+        component: () => RouterWorkflow,
+    });
+
+    const WorkflowJobs = dynamic({
+        app,
+        models: () => [],
+        component: () => RouterWorkflowJobs,
     });
 
     return (
         <ConnectedRouter history={history}>
             <Switch>
-                <BasicLayout path="/app" component={App} />
-                <BasicLayout path="/workflow" component={Workflow} />
+                <Route path="/login" component={Login} />
+                <BasicLayout exact path="/app" component={App} />
+                <BasicLayout exact path="/workflow" component={Workflow} />
+                <BasicLayout path="/workflow/jobs" component={WorkflowJobs} />
             </Switch>
         </ConnectedRouter>
     );

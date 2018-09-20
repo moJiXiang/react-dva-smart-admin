@@ -1,0 +1,61 @@
+.workflow-body {
+    padding: 0;
+    margin-top: -10px;
+    height: calc( 100vh - (49px + 52px));
+}
+
+.workflow-editor-container {
+    height: 400px;
+}
+
+.workflow-editor {
+    background: #fff;
+    height: 100%;
+    padding: 10px 0 10px 0;
+    position: relative;
+    margin-left: 200px;
+    margin-right: 200px;
+    overflow-x: hidden;   
+}
+
+.workflow-components-list {
+    position: absolute;
+    padding: 10px 14px 10px 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: #ffffff;
+    width: 200px;
+
+    h6 {
+        font-weight: normal;
+        font-size: 11px;
+        display: block;
+        padding: 0px 15px;
+        text-transform: uppercase;
+        color: #838383;
+    }
+}
+
+.workflowDiagram {
+    float: left;
+    width: 100%;
+    // min-height: calc( 100vh - (49px + 52px));
+    height: 400px;
+    flex: 1 1 auto;
+    background-color: #eeeeef;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.diagramPalette {
+    float: left;
+    width: 20%;
+    height: 300px;
+}
+
+canvas {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}

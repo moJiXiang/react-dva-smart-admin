@@ -1,10 +1,12 @@
+// @flow
 import React from 'react';
 
 import ToggleMenu from './ToggleMenu';
 import Activities from '../activities/components/Activities';
 import logo from '../../assets/img/logo.png';
 
-export default function Header() {
+export default function Header(props: any) {
+    const { logOut } = props;
     return (
         <header id="header">
             <div id="logo-group">
@@ -28,9 +30,9 @@ export default function Header() {
                 {/*  Top menu profile link : this shows only when top menu is active */}
                 <ul id="mobile-profile-img" className="header-dropdown-list hidden-xs padding-5">
                     <li className="">
-                        <a className="dropdown-toggle no-margin userdropdown" href="#" data-toggle="dropdown">
+                        {/* <a className="dropdown-toggle no-margin userdropdown" href="#" data-toggle="dropdown">
                             <img src="assets/img/avatars/sunny.png" alt="John Doe" className="online" />
-                        </a>
+                        </a> */}
                         <ul className="dropdown-menu pull-right">
                             <li>
                                 <a className="padding-10 padding-top-0 padding-bottom-0">
@@ -104,9 +106,10 @@ export default function Header() {
                     <span>
                         {' '}
                         <a
-                            href="#/login"
+                            href="#"
                             title="Sign Out"
                             data-logout-msg="You can improve your security further after logging out by closing this opened browser"
+                            onClick={logOut}
                         >
                             <i
                                 className="fa fa-sign-out"

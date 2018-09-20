@@ -1,11 +1,12 @@
 // import { listWorkflows } from '../services/api';
-import { listWorkflows } from '../mock/api';
+import { listWorkflows, listComponents } from '../mock/api';
 
 export default {
-    namespace: 'workflow',
+    namespace: 'cmdb',
 
     state: {
-        list: [],
+        workflowsList: [],
+        componentsList: [],
     },
 
     effects: {
@@ -14,7 +15,16 @@ export default {
             yield put({
                 type: 'initWorkflows',
                 payload: {
-                    list: ret.data.list,
+                    workflowsList: ret.data.list,
+                },
+            });
+        },
+        * listComponents({ payload }, { call, put }) {
+            const ret = yield call(listComponents, payload);
+            yield put({
+                type: 'initWorkflows',
+                payload: {
+                    componentsList: ret.data.list,
                 },
             });
         },

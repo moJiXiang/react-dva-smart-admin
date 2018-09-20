@@ -1,6 +1,4 @@
-import utils from '../utils/helpers';
-
-const { delay } = utils;
+import { delay } from '../utils/helpers';
 
 export default {
     namespace: 'count',
